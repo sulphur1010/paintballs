@@ -1,20 +1,52 @@
-
+<div class="panel panel-default">
+<div class="panel-body">
+<div class="row">
+<div class="col-md-4">
 <%= image_tag @game.image.url(:medium) %>
-<p>
-  <strong>Title:</strong>
-  <%= @game.title %>
-</p>
+<div class="table-responsive">
+<table class="table">
+	<tbody>
+	<tr>
+	<td><strong>Title:</strong>
+	</td>
+	<td><%= @game.title %>
+	</td>
+	</tr>
+	<tr>
+	<td><strong>Description:</strong>
+	</td>
+	<td><%=  @game.description  %>
+	</td>
+	</tr>
+
+	
+	</tbody>
+</table>
 
 
-<p>
-  <strong>Description:</strong>
-  <%= @game.description %>
-</p>
 
-<p>
-  <strong>Slug:</strong>
-  <%= @game.slug %>
-</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
