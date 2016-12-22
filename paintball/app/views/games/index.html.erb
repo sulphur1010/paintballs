@@ -17,7 +17,7 @@
     <% @games.each do |game| %>
       <tr>
         <td><%= game.title %></td>
-        <td><%= game.image %></td>
+        <td><%= image_tag game.image.url(:medium) %></td>
         <td><%= game.description %></td>
         <td><%= game.slug %></td>
         <td><%= link_to 'Show', game %></td>

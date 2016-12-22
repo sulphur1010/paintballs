@@ -1,23 +1,24 @@
 class GamesController < ApplicationController
   before_action :set_game, only: [:show, :edit, :update, :destroy]
   before_action :set_member
+  before_action :authenticate_member!, except: [:index, :show ]
 
 
- 
+
   def index
     @games = Game.all
   end
 
- 
+
   def show
   end
 
-  
+
   def new
     @game = Game.new
   end
 
- 
+
   def edit
   end
 
@@ -62,7 +63,7 @@ class GamesController < ApplicationController
   private
 
     def set_game
-      @game = Game.find(params[:id])
+      @game = Game.friendly.find(params[:id])
       
     end
 
