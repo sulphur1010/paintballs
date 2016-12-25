@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'teams/index'
+
+  get 'teams/show'
+
+  get 'teams/edit'
+
   devise_for :members
   resources :games
   # The priority is based upon order of creation: first created -> highest priority.
