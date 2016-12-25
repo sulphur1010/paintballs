@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161225080153) do
+ActiveRecord::Schema.define(version: 20161225082224) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(version: 20161225080153) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
   end
+
+  create_table "jointmemberteams", force: :cascade do |t|
+    t.integer  "member_id"
+    t.integer  "team_id"
+    t.integer  "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "jointmemberteams", ["member_id"], name: "index_jointmemberteams_on_member_id", using: :btree
+  add_index "jointmemberteams", ["team_id"], name: "index_jointmemberteams_on_team_id", using: :btree
 
   create_table "members", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -60,4 +71,6 @@ ActiveRecord::Schema.define(version: 20161225080153) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "jointmemberteams", "members"
+  add_foreign_key "jointmemberteams", "teams"
 end
