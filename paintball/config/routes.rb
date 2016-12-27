@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
-  get 'teams/index'
+  # get 'teams/index'
 
-  get 'teams/show'
+  # get 'teams/show'
 
-  get 'teams/edit'
+  # get 'teams/edit'
+  resources :teams do
+    #on: :member is for specific member
+    # post "add_member", to: "teams#add_member"
+    post 'add_member', on: :member
+    delete 'remove_member', on: :member
+    put 'transfer_ownership', on: :member
+    get 'all_members', on: :member
 
+  end
   devise_for :members
   resources :games
   # The priority is based upon order of creation: first created -> highest priority.

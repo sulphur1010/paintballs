@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 4.2'
 # friendly id, will be used to search instead of id
 gem 'friendly_id', '~> 5.2'
+#needed for general file upload
+gem 'carrierwave', '~> 1.0'
 
 #needed for managing image
 gem 'paperclip', '~> 5.1'
