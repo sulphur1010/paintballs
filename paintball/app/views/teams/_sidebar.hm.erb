@@ -1,0 +1,47 @@
+<div class="sidebar-wrapper">
+	<div class="logo align">
+	<!-- the logo space -->
+	</div>
+</div>
+<ul class="nav">
+<li id="step1">
+<%= link_to new_team_game_path(params[:team_id]||params[:id]) do %>
+<button type="button" class="button"> Create Game</button>
+<%end%>
+</li>
+
+<li id="step2" class="<%= (params[:c]=="1")? "active": "" %>">
+<%= link_to team_path(params[:team_id]||params[:id], c:1) do %>
+<i class="ti-control-play"> </i>
+<p> All Games </p>
+<%end%>
+</li>
+
+<li id="step3" class="<%= (params[:c]=="2") ? "active": ""%>">
+<%= link_to team_path(params[:team_id] || params[:id], c:2) do%>
+   <i class="ti-user"> </i>
+   <p></p>
+   <%end%>
+</li>
+
+
+<li id="step4" class="<%= (params[:c] == "3") ? "active": "" %>">
+                    <%= link_to team_game_path(params[:team_id] || params[:id], c: 3, status: 0, interview_id: @interview.slug) do %>
+                        <i class="ti-check-box"></i>
+                        <p>Best</p>
+                    <% end %>
+ </li>
+
+
+   <li id="step5" class="<%= (params[:c] == "4") ? "active": "" %>">
+                    <%= link_to team_game_path(params[:team_id] || params[:id], c: 4, status: 1, game_id: @game.slug) do %>
+                        <i class="ti-pencil-alt"></i>
+                        <p>Pending</p>
+                    <% end %>
+
+     </li>
+
+
+
+
+<ul>
