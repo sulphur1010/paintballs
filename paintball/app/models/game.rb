@@ -4,6 +4,7 @@ class Game < ActiveRecord::Base
 	belongs_to :members
 	has_many :reviews
 	#include FriendlyId
+	searchkick
 	extend FriendlyId
     friendly_id :name, use: :slugged
 end
