@@ -3,6 +3,8 @@
 <div class="row">
 <div class="col-md-4">
 <%= image_tag @game.image.url(:medium) %>
+<div class="star-rating" data-score= <%=@avg_review%> ></div>
+<em> <%= "#{@reviews.length} reviews"%></em>
 <div class="table-responsive">
 <table class="table">
 	<tbody>
@@ -18,15 +20,27 @@
 	<td><%=  @game.description  %>
 	</td>
 	</tr>
-
-	
 	</tbody>
 </table>
-
-
+<%= link_to "Review Game", new_game_review_path(game_id:@game.id), class: "btn  btn-info"  %>
 
 </div>
+</div>
+<div class="col-md-7 col-md-offset-1">
+<h1 class="review_title"><%= @game.title%></h1>
 
+<% if @reviews.blank?%>
+<h3> No Review, would you like to add one?</h3>
+<%= link_to "Review Game", new_game_review_path(game_id:@game.id), class: "btn btn-info"   %>
+<%else%>
+<%@reviews.each do |rev|%>
+<div class="reviews">
+	<div class="star-rating" data-score=<%=rev.rating%> > </div>
+	<p><%=rev.comment%></p>
+</div>
+
+<%end%>
+<%end%>
 </div>
 </div>
 </div>
@@ -50,3 +64,14 @@
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
+
+<script>
+$(".star-rating").raty({
+	path: "/assets/",
+	readOnly: true,
+	score: function(){
+		return $(this).attr('data-score');
+	}
+
+});
+</script>

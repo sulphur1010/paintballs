@@ -1,6 +1,7 @@
 class Member < ActiveRecord::Base
 
 	has_many :games
+  has_many :reviews, dependent: :destroy
 	has_many :members, :through => :joint_member_teams
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -8,9 +9,7 @@ class Member < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
 
-   
-
     # Try building a slug based on the following fields in
   	# increasing order of specificity.
-   
+
 end

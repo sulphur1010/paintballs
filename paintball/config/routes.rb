@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   # get 'teams/index'
 
   # get 'teams/show'
@@ -14,7 +15,9 @@ Rails.application.routes.draw do
 
   end
   devise_for :members
-  resources :games
+  resources :games do
+    resources :reviews
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
