@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  layout 'dashboard'
 	before_action :authenticate_member!
 	before_action :set_up_member
 	before_action :set_up_team
@@ -50,6 +51,7 @@ class TeamsController < ApplicationController
   		#send notifications to members on their new status
   		self.send_notification(new_owner.member.id, 5, current_owner.member.id, @team.name)
   		redirect_to edit_team_path(@team)
+     end
   end
 
   def create

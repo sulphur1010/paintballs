@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  layout 'dashboard'
   before_action :set_game, only: [:show, :edit, :update, :destroy]
   before_action :set_member
   before_action :authenticate_member!, except: [:index, :show ]
