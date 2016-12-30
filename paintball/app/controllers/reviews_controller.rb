@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  layout 'dashboard'
   before_action :set_review, only: [:show, :edit, :update, :destroy]
   before_action :set_up_game, except: [:destroy]
   before_action  :authenticate_member!
