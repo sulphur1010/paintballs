@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   
-  # get 'teams/index'
+  get 'landings/index'
 
-  # get 'teams/show'
-
-  # get 'teams/edit'
+  
   resources :teams do
     #on: :member is for specific member
     # post "add_member", to: "teams#add_member"
@@ -22,8 +20,8 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'games#index'
-
+  # root 'games#index
+    root 'landings#index'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
