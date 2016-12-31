@@ -7,7 +7,9 @@ class TeamsController < ApplicationController
 
 
 
-
+   def new
+    render  :layout => 'wizard'
+   end
 
    def index
    end
@@ -102,8 +104,7 @@ class TeamsController < ApplicationController
   	@member_status = @member_team.status
   end
 
-  def new
-  end
+  
 
   def update
   	@team.update_attributes(create_team_params)

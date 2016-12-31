@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Paintball</title>
+<%= stylesheet_link_tag    'application', 'dashboard',  media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'paper-bootstrap-wizard' %>
+
+ <!-- CSS Just for demo purpose, don't include it in your project -->
+  <%= stylesheet_link_tag   'demo' %>
+
+  	<%= javascript_include_tag  'application','dashboard', 'data-turbolinks-track' => true %>
+
+    
+      <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+     
+      <%= csrf_meta_tags %>
+
+
+
+</head><!--/head-->
+
+<body id="home" class="homepage">
+
+    <%= yield %>
+
+ <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= javascript_include_tag  'jquery.bootstrap.wizard', 'paper-bootstrap-wizard','jquery.validate.min' %>
+</body>
+</html>
