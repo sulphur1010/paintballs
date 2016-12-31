@@ -2,7 +2,7 @@ class TeamsController < ApplicationController
   layout 'dashboard'
 	before_action :authenticate_member!
 	before_action :set_up_member
-	before_action :set_up_team
+	before_action :set_up_team, :except => [:new, :create ]
 
 
 
@@ -90,7 +90,7 @@ class TeamsController < ApplicationController
         @all_members = @team.members
         # @interviews = @company.interviews.includes(:users).where(submissions: {status: nil}).paginate(:page => params[:page], :per_page => 5) 
   end
-  
+
   def all_members
   	@all_members = @team.members
   end

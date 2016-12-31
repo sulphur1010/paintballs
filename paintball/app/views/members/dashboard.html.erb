@@ -1,0 +1,126 @@
+<%= render partial: "navbar" %>
+<div class="wrapper">
+<div class="main-panel expand">
+
+<div class="content">
+<div class="container-fluid">
+<div class="row">
+	<div class="col-sm-6">Teams</div>
+	<div class="col-sm-6">Games</div>
+</div>
+<div class="row">
+
+                        <div class="header col-md-4 col-md-offset-2">
+                                <h4 class="title">Teams (<%= @member.teams.length %>)</h4>
+                        </div>
+                        <% if @member.teams.length > 0 %>
+                          <div class="col-md-4 col-md-offset-2">
+                              <%= link_to new_team_path do %>
+                                  <button  type="button" class="btn btn-raised btn-twitter">New Team</button>
+                              <% end %>
+                          </div>
+
+
+                        <% end %>
+                        <!-- test for zero state -->
+                        <% if @member.teams.length > 0 %>
+
+                          <div class="card col-md-8 col-md-offset-2 box-shape">
+                            <div class="content">
+                                <ul class="list-unstyled team-members">
+
+                                    <% @member.joint_member_teams.each do | member_team| %>
+                                      <li>
+
+
+                                        <%= link_to team_path(member_team.team, c:"1") do%>  
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <div class="">
+                                                    <% if member_team.team.logo.file.nil? %>  
+                                                           <%= image_tag('logo.png', height:"55") %>
+                                                       <% else %>
+
+                                                            <img src="<%= member_team.team.logo.url %>" height="55"  />
+                                                       <% end %>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <%= member_team.team.name %>
+                                                <!-- get number of collaborators -->
+                                                <% num_members = member_team.team.members.length  %>
+
+                                                <br>
+                                                <% if member_team.status == 0 %>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                             <span class="text-muted">
+                                                               Status: Owner
+                                                             </span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                          <span class="text-muted">
+                                                            No of member(s): <%= num_members %>
+                                                          </span>
+                                                        </div>
+                                                    </div>
+                                                <% elsif member_team.status == 1 %>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                             <span class="text-muted">
+                                                               Status:  Admin
+                                                             </span>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                          <span class="text-muted">
+                                                            No of member(s): <%= num_members %>
+                                                          </span> 
+                                                        </div>
+                                                    </div>
+                                                <% elsif member_team.status == 2 %>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                             <span class="text-muted">
+                                                               Status: User 
+                                                             </span> 
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                          <span class="text-muted">
+                                                            No of member(s): <%= num_members %>
+                                                          </span> 
+                                                        </div>
+                                                    </div>
+                                                <% elsif %>
+                                                    
+                                                <% end %>
+
+                                            </div>
+
+                                            <div class="col-xs-3 text-right">
+                                               <!--  <btn class="btn btn-sm btn-success btn-icon"><i class="fa fa-envelope"></i></btn> -->
+                                            </div>
+                                        </div>
+
+                                        <% end %>
+                                    </li>
+                                  <% end %>
+                                </ul>
+                            </div>
+                        </div>
+
+
+                        <% else %>
+                          <div class="col-md-8 col-md-offset-2">
+                            <div class="content">
+                              <%= render partial: "when_empty" %>
+                            </div>
+                          </div>
+                        <% end %>
+            	
+                    </div>
+
+
+</div>
+</div>
+</div>
+</div>
