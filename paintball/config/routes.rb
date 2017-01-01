@@ -12,7 +12,8 @@ Rails.application.routes.draw do
     get 'all_members', on: :member
 
   end
-  devise_for :members
+    devise_for :members
+  # devise_for :members, controllers: {invitations: 'members/invitations', registrations: "members/registrations", sessions: "members/sessions", passwords: "members/passwords"}, skip: [:sessions, :registrations]
   resources :games do
     resources :reviews
   end
