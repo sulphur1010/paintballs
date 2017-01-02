@@ -1,6 +1,6 @@
 require 'bcrypt'
 class MembersController < ApplicationController
-	layout 'member_dashboard'
+	layout 'dashboard'
 	before_action :authenticate_member!
 
 	# this is used to initial member's object to that it will be available to all 
@@ -9,18 +9,11 @@ class MembersController < ApplicationController
 
     def set_up_member
         @member = current_member
-        @notification = Notification.where(member_id: @member.id, read: 0)
+       
     end
 
 
-   def update_notification
-	     @notification = Notification.find(params[:notification_id])
-	    if !@notification.update_attributes(update_notification_params)
-	       render plain: "failure"
-	    else
-	      render plain: "success"
-	    end
-   end
+  
 
 
 

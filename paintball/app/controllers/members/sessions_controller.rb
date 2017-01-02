@@ -25,7 +25,8 @@ layout 'signin'
   # end
 
   def after_sign_in_path_for(resource)
-      member_dashboard_path 
+      # member_dashboard_path 
+      redirect_to  new_team_path
   end
 
 end

@@ -17,8 +17,8 @@ before_filter :configure_account_update_params, only: [:update]
   # GET /resource/edit
   def edit
     @member = current_member
-    @notification = Notification.where(member_id: @member.id, read: 0)
-    render :layout => 'member_dashboard'
+    # @notification = Notification.where(member_id: @member.id, read: 0)
+    # render :layout => 'member_dashboard'
     # super
 
   end
@@ -26,7 +26,7 @@ before_filter :configure_account_update_params, only: [:update]
   # PUT /resource
   def update
     @member = current_member
-    @notification = Notification.where(member_id: @member.id, read: 0)
+    # @notification = Notification.where(member_id: @member.id, read: 0)
     super
   end
 
@@ -47,13 +47,13 @@ before_filter :configure_account_update_params, only: [:update]
   protected
 
   # If you have extra params to permit, append them to the sanitizer.
-  def configure_sign_up_params
-    devise_parameter_sanitizer.for(:sign_up) << :name
-    if Rails.env.production?
-      notifier = Slack::Notifier.new "https://hooks.slack.com/services/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", channel: '#development', membername: 'signup'
-      notifier.ping "New Signup by " + params[:member][:name] + " email: " + params[:member][:email]
-    end 
-  end
+  # def configure_sign_up_params
+  #   devise_parameter_sanitizer.for(:sign_up) << :name
+  #   if Rails.env.production?
+  #     notifier = Slack::Notifier.new "https://hooks.slack.com/services/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", channel: '#development', membername: 'signup'
+  #     notifier.ping "New Signup by " + params[:member][:name] + " email: " + params[:member][:email]
+  #   end 
+  # end
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
@@ -62,7 +62,8 @@ before_filter :configure_account_update_params, only: [:update]
 
   # The path used after sign up.
   def after_sign_up_path_for(resource)
-    member_dashboard_path
+    # member_dashboard_path
+    redirect_to  new_team_path
   end
 
   # The path used after sign up for inactive accounts.
