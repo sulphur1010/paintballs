@@ -28,6 +28,14 @@ class TeamsController < ApplicationController
    end
   end
 
+  def invite_member
+    mail_list = params[:mail_list]
+    list = mail_list.split(",")
+    list.map do |item|
+    Invitemailer.member_invite_to_team(@team, item).deliver
+  end
+  redirect_to team_path(team_id:@team.id)
+ end
 
 
   def remove_member
