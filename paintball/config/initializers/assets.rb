@@ -11,3 +11,8 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( dashboard.css )
 Rails.application.config.assets.precompile += %w( dashboard.js )
+
+ #paper dashboard wizard
+Rails.application.config.assets.precompile += %w( wizard.css )
+Rails.application.config.assets.precompile += %w( wizard.js )
+

@@ -259,6 +259,7 @@ hr {
   max-height: none;
   min-height: 100%;
   overflow: hidden;
+  background-color: #EAF6F4;
   width: 260px;
   z-index: 4;
   box-shadow: inset -1px 0px 0px 0px #DDDDDD;
@@ -336,7 +337,7 @@ hr {
 }
 .sidebar .nav li.active > a:after,
 .off-canvas-sidebar .nav li.active > a:after {
-  border-right: 17px solid #f4f3ef;
+  border-right: 17px solid #EAF6F4;
   border-top: 17px solid transparent;
   border-bottom: 17px solid transparent;
   content: "";
@@ -459,7 +460,7 @@ hr {
 }
 
 .main-panel {
-  background-color: #f4f3ef;
+  background-color: #EAF6F4;
   position: relative;
   z-index: 2;
   float: right;
@@ -1446,7 +1447,7 @@ textarea.form-control {
 }
 
 .navbar-default {
-  background-color: #f4f3ef;
+  background-color: #EAF6F4;
   border-bottom: 1px solid #DDDDDD;
 }
 .navbar-default .brand {
@@ -2801,6 +2802,7 @@ textarea.form-control {
     position: relative;
     z-index: 3;
     overflow-y: scroll;
+    background-color: #EAF6F4;
     height: 100%;
     box-shadow: inset 1px 0px 0px 0px #DDDDDD;
   }
@@ -2847,7 +2849,7 @@ textarea.form-control {
   }
   .off-canvas-sidebar .nav > li.active > a:after {
     border-right: none;
-    border-left: 12px solid #f4f3ef;
+    border-left: 12px solid #EAF6F4;
     border-top: 12px solid transparent;
     border-bottom: 12px solid transparent;
     right: auto;
@@ -2861,7 +2863,7 @@ textarea.form-control {
     height: 100%;
     width: 100%;
     position: absolute;
-    background-color: #f4f3ef;
+    background-color: #EAF6F4;
     background-image: linear-gradient(to bottom, transparent 0%, rgba(112, 112, 112, 0) 60%, rgba(186, 186, 186, 0.15) 100%);
     display: block;
     content: "";

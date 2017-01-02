@@ -2,12 +2,14 @@ class TeamsController < ApplicationController
   layout 'dashboard'
 	before_action :authenticate_member!
 	before_action :set_up_member
-	before_action :set_up_team
+	before_action :set_up_team, :except => [:new, :create ]
 
 
 
 
-
+   def new
+    render  :layout => 'wizard'
+   end
 
    def index
    end
@@ -98,7 +100,7 @@ class TeamsController < ApplicationController
         @all_members = @team.members
         # @interviews = @company.interviews.includes(:users).where(submissions: {status: nil}).paginate(:page => params[:page], :per_page => 5) 
   end
-  
+
   def all_members
   	@all_members = @team.members
   end
@@ -110,8 +112,7 @@ class TeamsController < ApplicationController
   	@member_status = @member_team.status
   end
 
-  def new
-  end
+  
 
   def update
   	@team.update_attributes(create_team_params)

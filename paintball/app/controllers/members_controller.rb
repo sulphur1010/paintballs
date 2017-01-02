@@ -1,8 +1,8 @@
 require 'bcrypt'
-class membersController < ApplicationController
+class MembersController < ApplicationController
 	layout 'member_dashboard'
 	before_action :authenticate_member!
-	
+
 	# this is used to initial member's object to that it will be available to all 
 	# method without recalling it again
 	before_filter :set_up_member
@@ -23,14 +23,11 @@ class membersController < ApplicationController
    end
 
 
-  def dashboard
-		
-  end
 
-  def account
-  	if params[:update].present?
-	  	bcrypt_object = BCrypt::Password.new(@member.encrypted_password) 
-	    password_hash = ::BCrypt::Engine.hash_secret(params[:current_password], bcrypt_object.salt)
+   def account
+    if params[:update].present?
+      bcrypt_object = BCrypt::Password.new(@member.encrypted_password) 
+      password_hash = ::BCrypt::Engine.hash_secret(params[:current_password], bcrypt_object.salt)
         if password_hash == @member.encrypted_password
           if !params[:password].blank? 
             if (params[:password] == params[:confirm_password])
@@ -49,6 +46,17 @@ class membersController < ApplicationController
      end
   end
 
+
+  def dashboard
+
+  end
+
+
+
+
+
+
+
   def check_password
   	 bcrypt_object = BCrypt::Password.new(@member.encrypted_password) 
      password_hash = ::BCrypt::Engine.hash_secret(params[:current_password], bcrypt_object.salt)
@@ -56,7 +64,7 @@ class membersController < ApplicationController
 	    	render plain: "correct"
 	    else
 	    	render plain: "wrong"
-	    end   
+	    end
   end
 
 
@@ -64,6 +72,7 @@ class membersController < ApplicationController
   def update_notification_params
     params.permit(:read)
   end
+
 
 
 

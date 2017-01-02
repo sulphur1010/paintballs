@@ -32,6 +32,7 @@ gem 'friendly_id', '~> 5.2'
 gem 'searchkick', '~> 2.0'
 #needed for general file upload
 gem 'carrierwave', '~> 1.0'
+gem 'minitest', '~> 5.10', '>= 5.10.1'
 
 #needed for managing image
 gem 'paperclip', '~> 5.1'
