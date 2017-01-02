@@ -1,5 +1,7 @@
 <div class="wrapper">
 
+   <%= render 'sidebar' %>
+  
     <div class="main-panel expand">
         <!-- TODO Add Footer Partial -->
         <%= render partial: "members/navbar" %>
@@ -7,310 +9,184 @@
 
 <div class="image-container set-full-height" >
 
-        <!--   Big container   -->
-        <div class="container">
-            <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                         <br><br>
-                        <div class="card wizard-card box-shape" data-color="blue" id="wizardProfile">
-                            <form id="form" method="post" enctype="multipart/form-data" action="/companies">
-                                <div class="wizard-header text-center">
-                                    <h3 class="wizard-title">Create Team</h3>
-                                    <p class="category">This information will be used to create your Team </p>
-                                </div>
+  <br><br>
 
-                                <div class="wizard-navigation">
-                                    <div class="progress-with-circle">
-                                         <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" style="width: 21%;"></div>
-                                    </div>
-                                    <ul>
-                                        <li>
-                                            <a href="#about" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-info"></i>
-                                                </div>
-                                                Infomation
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#address" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-map"></i>
-                                                </div>
-                                                Address
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#account" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-bell"></i>
-                                                </div>
-                                                Notifications
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#collaborators" data-toggle="tab">
-                                                <div class="icon-circle">
-                                                    <i class="ti-user"></i>
-                                                </div>
-                                                Members
-                                            </a>
-                                        </li>
+    <!--  Made With Paper Kit  -->
+    <a href="#" class="made-with-pk">
+      <div class="brand">IM</div>
+      <div class="made-with">Made with <strong>Paper Kit</strong></div>
+    </a>
 
+          <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
 
-                                    </ul>
-                                </div>
-                                <div class="tab-content">
-                                    <div class="tab-pane" id="about">
-                                        <div class="row">
-                                            <h5 class="info-text"> Please tell us more about yourself.</h5>
-                                            <div class="col-sm-4 col-sm-offset-1">
-                                                <div class="picture-container">
-                                                    <div class="picture">
-                                                        <%= image_tag('logo1.png', height:"55", class:"picture-src", id:"wizardPicturePreview",title:"") %>
+                    <div class="card wizard-card" data-color="orange" id="wizardProfile">
+                        <form action="" method="">
+                    <!--        You can switch " data-color="orange" "  with one of the next bright colors: "blue", "green", "orange", "red", "azure"          -->
 
-                                                        <input type="file" id="wizard-picture" name="logo">
-                                                    </div>
-                                                    <h6>Choose Logo</h6>
-                                                    <small> Transparent 330 X 80 </small>
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-6">
-                                                <div class="form-group">
-                                                    <label> Team Name <small>(required)</small></label>
-                                                    <input name="name" type="text" class="form-control" placeholder="Organization">
-                                                </div>
-                                                
-                                            </div>
-                                            <!-- <div class="col-sm-10 col-sm-offset-1">
-                                                <div class="form-group">
-                                                    <label>Tags</label>
-                                                    <input name="tags" type="text" id="tags" class="form-control" >
-                                                </div>
-                                            </div> -->
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane" id="address">
-                                        <div class="row">
-                                            <div class="col-sm-12">
-                                                <h5 class="info-text"> Location of your organization </h5>
-                                            </div>
-                                            <div class="col-sm-10 col-sm-offset-1">
+                          <div class="wizard-header text-center">
+                              <h3 class="wizard-title">Create your profile</h3>
+                  <p class="category">This information will let us know more about you.</p>
+                          </div>
 
-                                                <div class="form-group">
-                                                    <label>Address</label>
-                                                    <input type="text" name="location" class="form-control" placeholder="Organization Address">
-                                                </div>
-                                            </div>
-
-                                            <div class="col-sm-5 col-sm-offset-1">
-                                                <div class="form-group">
-                                                    <label>City</label>
-                                                    <input type="text" name="city" class="form-control" placeholder="City">
-                                                </div>
-                                            </div>
-                                            <div class="col-sm-5">
-                                                <div class="form-group">
-                                                    <label>Country</label><br>
-                                                    <select name="country" class="form-control">
-                                                        <option value="Nigeria"> Nigeria </option>
-                                                        <option value="Albania"> Albania </option>
-                                                        <option value="Algeria"> Algeria </option>
-                                                        <option value="American Samoa"> American Samoa </option>
-                                                        <option value="Andorra"> Andorra </option>
-                                                        <option value="Angola"> Angola </option>
-                                                        <option value="Anguilla"> Anguilla </option>
-                                                        <option value="Antarctica"> Antarctica </option>
-                                                        <option value="...">...</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane" id="account">
-                                        <h5 class="info-text"> Get notification(s) via?  </h5>
-                                        <div class="row">
-                                            <div class="col-sm-8 col-sm-offset-2">
-                                                <div class="col-sm-4">
-                                                    <div class="choice" data-toggle="wizard-checkbox">
-                                                        <input type="checkbox"  value="Design">
-                                                        <div class="card card-checkboxes card-hover-effect">
-                                                            <i class="ti-email"></i>
-                                                            <p>Email</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="choice" data-toggle="wizard-checkbox">
-                                                        <input type="checkbox"  value="Code">
-                                                        <div class="card card-checkboxes card-hover-effect">
-                                                            <i class="ti-comment"></i>
-                                                            <p>Sms</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="choice" data-toggle="wizard-checkbox">
-                                                        <input type="checkbox"  value="Develop">
-                                                        <div class="card card-checkboxes card-hover-effect">
-                                                            <i class="ti-alert"></i>
-                                                            <p>Inbuilt Alert</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane" id="collaborators">
-                                        <h5 class="info-text"> Add members &nbsp;&nbsp;&nbsp; <btn id="add-collaborator" class='btn add-collaborator'><i class='ti-plus'></i></btn></h5> 
-
-                                        <div class="row">
-                                            <div class="col-sm-10 col-sm-offset-1">
-
-                                            <div id="collaborator-content" >
-                                                <div class='row'>
-                                                    <div class='col-sm-7'>
-                                                     <div class='form-group'>
-                                                        <input type='email' class='form-control collaborator'  placeholder='email' name="name33">
-                                                    </div>
-                                                    </div>
-                                                    <div class='col-sm-3'>
-                                                        <div class="form-group">
-                                                            <select name='country' class='form-control'>
-                                                                 <option value='1'> admin </option>
-                                                                 <option value='2'> user</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class='col-sm-2'>
-                                                         <btn class='btn box-shape remove-new-collaborator' ><i class='ti-close'></i></btn>
-                                                    </div>
-                                                </div>
-
-                                                <div class='row'>
-                                                    <div class='col-sm-7'>
-                                                     <div class='form-group'>
-                                                        <input type='email' class='form-control collaborator'  placeholder='email' name="name90">
-                                                    </div>
-                                                    </div>
-                                                    <div class='col-sm-3'>
-                                                        <div class="form-group">
-                                                            <select name='country' class='form-control'>
-                                                                 <option value='1'> admin </option>
-                                                                 <option value='2'> user</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <div class='col-sm-2'>
-                                                         <btn class='btn box-shape remove-new-collaborator' ><i class='ti-close'></i></btn>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- add csrf token -->
-                                    <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %> 
-
-                                    <!-- hiddden user's id -->
-                                    <input type="text" name="member_id" value="<%= @member.id %>" hidden >
-                                    <!-- hidden stringify emails for collaboartions -->
-                                    <input type="text" id="collaborate-json" name="collaborators_list"  hidden>
-
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-
-
-                                </div>
-                                <div class="wizard-footer">
-                                    <div class="pull-right">
-
-
-                                        <input type='button' class='btn btn-next btn-fill btn-info btn-wd' name='next' value='Next' />
-                                        <input type='button' class='btn btn-finish btn-fill btn-info btn-wd' name='finish' id="finish" value='Finish' />
-                                    </div>
-
-                                    <div class="pull-left">
-                                        <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                            </form>
+                <div class="wizard-navigation">
+                  <div class="progress-with-circle">
+                       <div class="progress-bar" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3" style="width: 21%;"></div>
+                  </div>
+                  <ul>
+                                  <li>
+                      <a href="#about" data-toggle="tab">
+                        <div class="icon-circle">
+                          <i class="ti-user"></i>
                         </div>
-                    <!-- </div> wizard container -->
+                        About
+                      </a>
+                    </li>
+                                  <li>
+                      <a href="#account" data-toggle="tab">
+                        <div class="icon-circle">
+                          <i class="ti-settings"></i>
+                        </div>
+                        Work
+                      </a>
+                    </li>
+                                  <li>
+                      <a href="#address" data-toggle="tab">
+                        <div class="icon-circle">
+                          <i class="ti-map"></i>
+                        </div>
+                        Address
+                      </a>
+                    </li>
+                              </ul>
                 </div>
-            </div><!-- end row -->
-         </div> <!-- end container fluid -->
-        </div> <!--  big container -->
+                            <div class="tab-content">
+                                <div class="tab-pane" id="about">
+                                  <div class="row">
+                      <h5 class="info-text"> Please tell us more about yourself.</h5>
+                      <div class="col-sm-4 col-sm-offset-1">
+                        <div class="picture-container">
+                          <div class="picture">
+                            <%= image_tag 'default-avatar.jpg', alt:"", class:"picture-src" %>
+                            <input type="file" id="wizard-picture">
+                          </div>
+                          <h6>Choose Picture</h6>
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label>First Name <small>(required)</small></label>
+                          <input name="firstname" type="text" class="form-control" placeholder="Andrew...">
+                        </div>
+                        <div class="form-group">
+                          <label>Last Name <small>(required)</small></label>
+                          <input name="lastname" type="text" class="form-control" placeholder="Smith...">
+                        </div>
+                      </div>
+                      <div class="col-sm-10 col-sm-offset-1">
+                        <div class="form-group">
+                          <label>Email <small>(required)</small></label>
+                          <input name="email" type="email" class="form-control" placeholder="andrew@creative-tim.com">
+                        </div>
+                      </div>
+                    </div>
+                                </div>
+                                <div class="tab-pane" id="account">
+                                    <h5 class="info-text"> What are you doing? (checkboxes) </h5>
+                                    <div class="row">
+                                        <div class="col-sm-8 col-sm-offset-2">
+                                            <div class="col-sm-4">
+                                                <div class="choice" data-toggle="wizard-checkbox">
+                                                    <input type="checkbox" name="jobb" value="Design">
+                                                    <div class="card card-checkboxes card-hover-effect">
+                                                        <i class="ti-paint-roller"></i>
+                              <p>Design</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="choice" data-toggle="wizard-checkbox">
+                                                    <input type="checkbox" name="jobb" value="Code">
+                                                    <div class="card card-checkboxes card-hover-effect">
+                                                        <i class="ti-pencil-alt"></i>
+                              <p>Code</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="choice" data-toggle="wizard-checkbox">
+                                                    <input type="checkbox" name="jobb" value="Develop">
+                                                    <div class="card card-checkboxes card-hover-effect">
+                                                        <i class="ti-star"></i>
+                              <p>Develop</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="address">
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h5 class="info-text"> Are you living in a nice area? </h5>
+                                        </div>
+                                        <div class="col-sm-7 col-sm-offset-1">
+                                          <div class="form-group">
+                                                <label>Street Name</label>
+                                                <input type="text" class="form-control" placeholder="5h Avenue">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="form-group">
+                                                <label>Street Number</label>
+                                                <input type="text" class="form-control" placeholder="242">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5 col-sm-offset-1">
+                                            <div class="form-group">
+                                                <label>City</label>
+                                                <input type="text" class="form-control" placeholder="New York...">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-group">
+                                                <label>Country</label><br>
+                                                <select name="country" class="form-control">
+                                                    <option value="Afghanistan"> Afghanistan </option>
+                                                    <option value="Albania"> Albania </option>
+                                                    <option value="Algeria"> Algeria </option>
+                                                    <option value="American Samoa"> American Samoa </option>
+                                                    <option value="Andorra"> Andorra </option>
+                                                    <option value="Angola"> Angola </option>
+                                                    <option value="Anguilla"> Anguilla </option>
+                                                    <option value="Antarctica"> Antarctica </option>
+                                                    <option value="...">...</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="wizard-footer">
+                                <div class="pull-right">
+                                    <input type='button' class='btn btn-next btn-fill btn-warning btn-wd' name='next' value='Next' />
+                                    <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd' name='finish' value='Finish' />
+                                </div>
 
-    </div>
+                                <div class="pull-left">
+                                    <input type='button' class='btn btn-previous btn-default btn-wd' name='previous' value='Previous' />
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </form>
+                    </div>
+            </div>
+        </div><!-- end row -->
+
+
+
+</div>
 
 </div>
 </div>
 
-
-<script>
-
-    // $('#tags').tagit({
-    //     tagLimit: 4,
-    //     placeholderText: "Add tags",
-    //     onTagLimitExceeded : function(event, ui){
-    //         // $("#indicator-tags").html("Tags cannot be more than four");
-    //     }
-    // });
-
-
-    var counter = 0;
-    $("#add-collaborator").click(function(){
-        $("#collaborator-content").append(addCollaborator("name"+counter));
-        counter++;
-    });
-
-    //  remove added collaborators
-     $("#collaborator-content").on("click", ".remove-new-collaborator", function(){
-        $(this).parents('div.row')[0].remove();
-    });
-
-
-    $("#finish").click(function(event){
-         jsonObj = [];
-         $("#collaborator-content").find(".row").each(function(index) {
-             var emailObject = $(this).find("input");
-             var email = emailObject.get(0).value ;
-             var statusObject = $(this).find("option:selected");
-             var status = statusObject.get(0).value;
-             collaborateItem = {}
-             collaborateItem["email"] = email;
-             collaborateItem["status"] = status ;
-             jsonObj.push(collaborateItem);
-        });
-         $("#collaborate-json").val(JSON.stringify(jsonObj))
-         $("#form").submit();
-    });
-
-function addCollaborator(name){
-    var result = "<div class='row'>"+
-                    "<div class='col-sm-7'>"+
-                     "<div class='form-group'>"+
-                        "<input type='email' class='form-control collaborator' name='"+name+"' placeholder='email'>"+
-                    "</div>"+
-                    "</div>"+
-                    "<div class='col-sm-3'>"+
-                        "<div class='form-group'>"+
-                            "<select name='country' class='form-control'>"+
-                                 "<option value='1'> admin </option>"+
-                                 "<option value='2'> user</option>"+
-                            "</select>"+
-                        "</div>"+
-                    "</div>"+
-                    "<div class='col-sm-2'>"+
-                         "<btn class='btn box-shape remove-new-collaborator' ><i class='ti-close'></i></btn>"+
-                    "</div>"+
-                "</div>" ;
-    return result;
-}
-
-
-</script>

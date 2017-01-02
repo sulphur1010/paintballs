@@ -1,3 +1,35 @@
+/*! =========================================================
+ *
+ Paper Bootstrap Wizard - V1.0.1
+*
+* =========================================================
+*
+* Copyright 2016 Creative Tim (http://www.creative-tim.com/product/paper-bootstrap-wizard)
+ *
+ *                       _oo0oo_
+ *                      o8888888o
+ *                      88" . "88
+ *                      (| -_- |)
+ *                      0\  =  /0
+ *                    ___/`---'\___
+ *                  .' \|     |// '.
+ *                 / \|||  :  |||// \
+ *                / _||||| -:- |||||- \
+ *               |   | \\  -  /// |   |
+ *               | \_|  ''\---/''  |_/ |
+ *               \  .-\__  '-'  ___/-. /
+ *             ___'. .'  /--.--\  `. .'___
+ *          ."" '<  `.___\_<|>_/___.' >' "".
+ *         | | :  `- \`.;`\ _ /`;.`/ - ` : | |
+ *         \  \ `_.   \_ __\ /__ _/   .-` /  /
+ *     =====`-.____`.___ \_____/___.-`___.-'=====
+ *                       `=---='
+ *
+ *     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ *
+ *               Buddha Bless:  "No Bugs"
+ *
+ * ========================================================= */
 
 // Paper Bootstrap Wizard Functions
 
@@ -8,84 +40,23 @@ transparent = true;
 
             /*  Activate the tooltips      */
             $('[rel="tooltip"]').tooltip();
+
             // Code for the Validator
             var $validator = $('.wizard-card form').validate({
         		  rules: {
-        		    name: {
+        		    firstname: {
         		      required: true,
         		      minlength: 3
         		    },
-        		    subdomain: {
-            		      required: true,
-            		      minlength: 3,
-                          remote: {
-                            url: "/check_subdomain",
-                            type: "GET",
-                            data: {
-                              subdomain: function() {
-                                return $( "#company-subdomain").val().trim();
-                              }
-                            },
-                            beforeSend: function(){
-                                $('#symbol').addClass('fa fa-spinner fa-spin');
-                            },
-                            dataFilter: function(response) {
-                              if (response == "no"){
-                                $('#symbol').addClass('ti-check');
-                                $('#symbol').removeClass('ti-close');
-                                $('#symbol').removeClass('fa fa-spinner fa-spin');
-                                return true;
-                              } else {
-                                $('#symbol').addClass('ti-close');
-                                $('#symbol').removeClass('ti-check');
-                                $('#symbol').removeClass('fa fa-spinner fa-spin');
-                                return false;
-                              }
-                            }
-                          }
-                         
+        		    lastname: {
+        		      required: true,
+        		      minlength: 3
+        		    },
+        		    email: {
+        		      required: true
         		    }
                 },
-                messages: {
-                    subdomain: {
-                      remote: "Subdomain already exist, use another"
-                    }
-                  }
         	});
-
-            $.validator.addMethod("cRequired", $.validator.methods.required,
-            "This field is required, remove it if you are not adding collaborator");
-            $.validator.addClassRules("collaborator", {
-              cRequired: true,
-              minlength: 2,
-            });
-
-            $.validator.addClassRules("interview-details", {
-              required: true,
-              minlength: 2,
-            });
-
-            // add custom validation to validate time
-            $.validator.addMethod("timeValidation", function(value, element) {
-              return this.optional(element) || /^[0-9]{1,2}:[0-9]{1,2}$/.test(value);
-            }, "Please specify the correct time format, use mm:ss ");
-
-            $.validator.addClassRules("interview-time", {
-              required: true,
-              minlength: 2,
-              timeValidation: true
-            });
-
-            // add custom validation to validate time
-            $.validator.addMethod("numberValidation", function(value, element) {
-              return this.optional(element) || /^[0-9]+$/.test(value);
-            }, "Value must be numeric "); 
-
-            $.validator.addClassRules("interview-number", {
-              required: true,
-              numberValidation: true
-
-            });
 
             // Wizard Initialization
           	$('.wizard-card').bootstrapWizard({
@@ -94,7 +65,6 @@ transparent = true;
                 'previousSelector': '.btn-previous',
 
                 onNext: function(tab, navigation, index) {
-        
                 	var $valid = $('.wizard-card form').valid();
                 	if(!$valid) {
                 		$validator.focusInvalid();
@@ -192,23 +162,4 @@ transparent = true;
                 }
                 reader.readAsDataURL(input.files[0]);
             }
-        }
-
-
-
-        function validateSubdomain(word){
-            $.ajax({
-              url: '/check_subdomain', 
-              type: 'GET',
-              data: {subdomain: word },
-              success: function(data){
-                  if (data == "yes")
-                    { return true; }  
-                else 
-                    {return false; }
-              },
-              error : function(jqXHR, textStatus, errorThrown) {
-                   
-               }
-           });
         }

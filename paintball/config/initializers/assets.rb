@@ -13,8 +13,6 @@ Rails.application.config.assets.precompile += %w( dashboard.css )
 Rails.application.config.assets.precompile += %w( dashboard.js )
 
  #paper dashboard wizard
-Rails.application.config.assets.precompile += %w( demo.css )
-Rails.application.config.assets.precompile += %w( paper-bootstrap-wizard.css )
-Rails.application.config.assets.precompile += %w( jquery.bootstrap.wizard.js )
-Rails.application.config.assets.precompile += %w( jquery.validate.min.js )
-Rails.application.config.assets.precompile += %w( paper-bootstrap-wizard.js )
+Rails.application.config.assets.precompile += %w( wizard.css )
+Rails.application.config.assets.precompile += %w( wizard.js )
+
